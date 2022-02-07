@@ -79,9 +79,16 @@ const igual = () => {
 
 document.getElementById('igual').addEventListener('click', igual);
 
-const inverter =() => {
+const inverter = () => {
     novoNumero = true;
     atualizarDisplay(display.textContent * -1);
 }
 
 document.getElementById('inverter').addEventListener('click', inverter);
+
+const remover = () => {
+    novoNumero = true;
+    atualizarDisplay(display.textContent.substring(0, display.textContent.length - 1));
+}
+
+document.getElementById('backspace').addEventListener('click', remover);
