@@ -79,16 +79,21 @@ const igual = () => {
 
 document.getElementById('igual').addEventListener('click', igual);
 
-const inverter = () => {
+const inverterSinal = () => {
     novoNumero = true;
     atualizarDisplay(display.textContent * -1);
 }
 
-document.getElementById('inverter').addEventListener('click', inverter);
+document.getElementById('inverter').addEventListener('click', inverterSinal);
 
-const remover = () => {
+const removerUltimoNumero = () => {
     novoNumero = true;
-    atualizarDisplay(display.textContent.substring(0, display.textContent.length - 1));
+    if(display.textContent.length > 1){
+        atualizarDisplay(display.textContent.substring(0, display.textContent.length -1));
+    } else{
+        atualizarDisplay('0');
+    }
+    console.log(display.textContent.length);
 }
 
-document.getElementById('backspace').addEventListener('click', remover);
+document.getElementById('backspace').addEventListener('click', removerUltimoNumero);
