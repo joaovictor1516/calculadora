@@ -32,13 +32,17 @@ const calcular = () => {
 }
 
 const atualizarDisplay = (texto) => {
-    if(novoNumero){
+    if(display.textContent === '0'){
         display.textContent = texto;
-        novoNumero = false;
+    } else{
+        if(novoNumero){
+            display.textContent = texto;
+            novoNumero = false;
+        }
+        else{
+            display.textContent += texto;
+        }
     }
-    else{
-        display.textContent += texto;
-    } 
 }
 
 const inserirNumero = (evento) => {
@@ -54,9 +58,8 @@ const selecionaOperador = (evento) => {
     }
 }
 
-
 const limparDisplay = () => {
-    display.textContent = '';
+    display.textContent = '0';
 }
 
 document.getElementById('limparDisplay').addEventListener('click', limparDisplay);
@@ -93,7 +96,6 @@ const removerUltimoNumero = () => {
     } else{
         atualizarDisplay('0');
     }
-    console.log(display.textContent.length);
 }
 
 document.getElementById('backspace').addEventListener('click', removerUltimoNumero);
